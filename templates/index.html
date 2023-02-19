@@ -3,17 +3,22 @@
   <head>
     <title>My Three.js and LangChain Web App</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <link rel="stylesheet" href="/static/css/style.css") }}">
-
-  </head>
+    <link rel="stylesheet" href="/static/css/style.css") }}>
+    <style>
+      
+    </style>
   </head>
   <body>
     <h1>My Three.js and LangChain Web App</h1>
-    <label for="textbox">Enter code:</label>
-    <input type="text" id="textbox">
-    <button id="submit-button">Render</button>
+    <input type="text" id="textbox" placeholder="Enter code...">
+    <button id="render-button">Render</button>
     <canvas id="canvas"></canvas>
-        <script src="/static/js/init_three.js"></script>
-        <script src="/static/js/utils.js"></script>
+    <script src="/static/js/init_three.js"></script>
+    <script src="/static/js/utils.js"></script>
+    <script>
+      document.getElementById("render-button").addEventListener("click", function() {
+        generate(document.getElementById("textbox").value);
+      });
+    </script>
   </body>
 </html>
