@@ -1,6 +1,4 @@
-function generate() {
-  // var prompt = document.getElementById('textbox').value;
-  var prompt = "heelo"
+function generate(prompt) {
 
   // Make a POST request to the Flask server to get the Three.js code
   fetch('/generate', {
@@ -14,6 +12,7 @@ function generate() {
     .then(data => {
       // Create the Three.js objects from the generated code
       eval(data.code);
+      document.getElementById("code").innerHTML = data.code;
     })
     .catch(error => console.error(error));
 }
