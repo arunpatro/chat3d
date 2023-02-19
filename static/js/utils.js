@@ -11,6 +11,7 @@ function generate(prompt) {
     .then(response => response.json())
     .then(data => {
       // Create the Three.js objects from the generated code
+      console.log(data.code)
       eval(data.code);
       document.getElementById("code").innerHTML = data.code;
     })
