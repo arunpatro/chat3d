@@ -17,3 +17,5 @@ interactive text to 3d rendering
 ## expts
 - multiple llm model
 - break down task -> generate code for each task -> verify each code -> tie it all up
+- better to finetune the model than do prompt engineering. Prompts can be rather used to choose the type of the task perhaps? 
+- how to use agents to handle the multiple llm model? 
