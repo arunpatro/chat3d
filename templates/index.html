@@ -8,15 +8,18 @@
   <body>
     <h1>My Three.js and LangChain Web App</h1>
     <div class="input-container">
-      <input type="text" id="textbox" placeholder="Enter code...">
+      <input type="text" id="textbox" value="a small blue ball" placeholder="a small blue ball">
       <button id="render-button">Render</button>
+    </div>
+    <div id="loading" style="display: none;">
+      <img src="/static/loading.gif" width="50px">
     </div>
     <div class="content-container">
         <pre id="code"></pre>
         <canvas id="canvas"></canvas>
     </div>
     <script src="/static/js/init_three.js"></script>
-    <script src="/static/js/utils.js"></script>
     <script src="/static/js/app.js"></script>
+    <script src="/static/js/utils.js"></script>
   </body>
 </html>

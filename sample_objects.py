@@ -1,3 +1,50 @@
+examples = [{
+    "description": "a blue ball with phong reflection",
+    "code":
+"""
+// Create the blue ball geometry
+var geometry = new THREE.SphereGeometry(1, 32, 32);
+
+// Create the Phong material with blue color and shiny reflection
+var material = new THREE.MeshPhongMaterial({{ color: 0x0000ff, shininess: 100 }});
+
+// Create the blue ball mesh
+var ball = new THREE.Mesh(geometry, material);
+// Center the ball around the origin
+ball.position.set(0, 0, 0);
+
+scene.add(ball);
+"""
+}, {
+    "description": "two green balls side by side, one with matte finish and the other with phong reflection",
+    "code":
+"""
+// Create the green matte ball geometry
+var matteGeometry = new THREE.SphereGeometry(1, 32, 32);
+
+// Create the lambert material with green color and matte finish
+var matteMaterial = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
+
+// Create the green matte ball mesh
+var matteBall = new THREE.Mesh(matteGeometry, matteMaterial);
+matteBall.position.x = -1.5;
+
+// Create the green shiny ball geometry
+var shinyGeometry = new THREE.SphereGeometry(1, 32, 32);
+
+// Create the Phong material with green color and shiny reflection
+var shinyMaterial = new THREE.MeshPhongMaterial({{ color: 0x00ff00, shininess: 100 }});
+
+// Create the green shiny ball mesh
+var shinyBall = new THREE.Mesh(shinyGeometry, shinyMaterial);
+shinyBall.position.x = 1.5;
+
+scene.add(matteBall);
+scene.add(shinyBall);
+
+"""      
+}]
+
 mickey_mouse = """
 // Create a Mickey Mouse head
 var headGeometry = new THREE.SphereGeometry(1.5, 32, 32);
@@ -123,4 +170,26 @@ function animate() {
 // Call the animation function
 animate();
 
+"""
+
+a_small_blue_ball = """
+// Create the blue ball geometry
+var geometry = new THREE.SphereGeometry(0.5, 32, 32);
+
+// Create the Phong material with blue color and shiny reflection
+var material = new THREE.MeshPhongMaterial({ color: 0x0000ff, shininess: 100 });
+
+// Create the blue ball mesh
+var ball = new THREE.Mesh(geometry, material);
+// Center the ball around the origin
+ball.position.set(0, 0, 0);
+
+scene.add(ball);
+function animate() {
+  requestAnimationFrame(animate);
+  ball.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+// Call the animation function
+animate();
 """
