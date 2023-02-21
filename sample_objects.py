@@ -73,3 +73,54 @@ function animate() {
 // Call the animation function
 animate();
 """
+
+
+table = """
+// Create the table top
+var tableTopGeometry = new THREE.BoxGeometry(2, 0.1, 1);
+var tableTopMaterial = new THREE.MeshPhongMaterial({ color: 0x886633, shininess: 100 });
+var tableTop = new THREE.Mesh(tableTopGeometry, tableTopMaterial);
+tableTop.position.set(0, 0.55, 0);
+
+// Create the table legs
+var tableLegGeometry = new THREE.BoxGeometry(0.1, 0.4, 0.1);
+var tableLegMaterial = new THREE.MeshPhongMaterial({ color: 0x886633, shininess: 100 });
+var tableLeg1 = new THREE.Mesh(tableLegGeometry, tableLegMaterial);
+tableLeg1.position.set(-0.9, 0.2, -0.4);
+var tableLeg2 = new THREE.Mesh(tableLegGeometry, tableLegMaterial);
+tableLeg2.position.set(-0.9, 0.2, 0.4);
+var tableLeg3 = new THREE.Mesh(tableLegGeometry, tableLegMaterial);
+tableLeg3.position.set(0.9, 0.2, -0.4);
+var tableLeg4 = new THREE.Mesh(tableLegGeometry, tableLegMaterial);
+tableLeg4.position.set(0.9, 0.2, 0.4);
+
+// Add the table top and legs to a group
+var tableGroup = new THREE.Group();
+tableGroup.add(tableTop);
+tableGroup.add(tableLeg1);
+tableGroup.add(tableLeg2);
+tableGroup.add(tableLeg3);
+tableGroup.add(tableLeg4);
+
+// Add the table group to the scene
+scene.add(tableGroup);
+
+// Create a directional light
+var light = new THREE.DirectionalLight(0xffffff, 1);
+light.position.set(0, 1, 1).normalize();
+scene.add(light);
+
+// Position the camera
+camera.position.set(0, 1, 3);
+
+// Create an animation function
+function animate() {
+  requestAnimationFrame(animate);
+  tableGroup.rotation.y += 0.01;
+  renderer.render(scene, camera);
+}
+
+// Call the animation function
+animate();
+
+"""
