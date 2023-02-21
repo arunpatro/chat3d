@@ -16,7 +16,9 @@ Code: {code}\n
 
 prefix = """I want you to generate the code for three.js to generate one or more 3d models. We need code for four things: 1. Objects 2. Camera 3. Scene 4. Lights. 
 Given a description of the object, your task is to generate the code for the object and if neccessary group the objects to create a composite group object.
-Return the code as a string without any docstrings or english text, which will directly executed on the js console.
+Return the code as a string without any docstrings or english text, which will directly executed on the js console. Ensure that the objects are not too small or big and must be visible from a camera with parameters:
+camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 1, 10000);
+camera.position.z = 500;
 Here are a few examples of how to do this:"""
 
 suffix = "Description: {description}\nCode:"
@@ -56,9 +58,8 @@ def generate():
   prompt = request.json["prompt"]
   print("Generating code for prompt: ", prompt)
   # code = ball
-  # code = model(prompt_builder.format(input=prompt))
-  # code += render_code
-  code = test_code
+  code = model(prompt_builder.format(input=prompt))
+  # code = test_code
   print(code)
   response = {"code": code}
   return jsonify(response)
