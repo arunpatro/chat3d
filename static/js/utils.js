@@ -44,4 +44,26 @@ function init_scene() {
   var light = new THREE.DirectionalLight(0xffffff, 1);
   light.position.set(0, 1, 1).normalize();
   scene.add(light);
+
+  // Create the blue ball geometry
+  var geometry = new THREE.SphereGeometry(0.5, 32, 32);
+  
+  // Create the Phong material with blue color and shiny reflection
+  var material = new THREE.MeshPhongMaterial({ color: 0x0000ff, shininess: 100 });
+  
+  // Create the blue ball mesh
+  var ball = new THREE.Mesh(geometry, material);
+  // Center the ball around the origin
+  ball.position.set(0, 0, 0);
+  
+  scene.add(ball);
+  function animate() {
+    requestAnimationFrame(animate);
+    ball.rotation.y += 0.01;
+    renderer.render(scene, camera);
+  }
+  // Call the animation function
+  animate();
+  
 }
+

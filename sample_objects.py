@@ -1,24 +1,18 @@
 examples = [{
-    "description": "a blue ball with phong reflection",
-    "code":
-"""
-// Create the blue ball geometry
-var geometry = new THREE.SphereGeometry(1, 32, 32);
-
-// Create the Phong material with blue color and shiny reflection
-var material = new THREE.MeshPhongMaterial({{ color: 0x0000ff, shininess: 100 }});
-
-// Create the blue ball mesh
-var ball = new THREE.Mesh(geometry, material);
-// Center the ball around the origin
-ball.position.set(0, 0, 0);
-
+  "description":
+  "a blue ball with phong reflection",
+  "code":
+  """
+geometry = new THREE.SphereGeometry(100, 32, 32);
+material = new THREE.MeshPhongMaterial({{ color: 0x0000ff, shininess: 100 }});
+ball = new THREE.Mesh(geometry, material);
 scene.add(ball);
 """
 }, {
-    "description": "two green balls side by side, one with matte finish and the other with phong reflection",
-    "code":
-"""
+  "description":
+  "two green balls side by side, one with matte finish and the other with phong reflection",
+  "code":
+  """
 // Create the green matte ball geometry
 var matteGeometry = new THREE.SphereGeometry(1, 32, 32);
 
@@ -42,7 +36,7 @@ shinyBall.position.x = 1.5;
 scene.add(matteBall);
 scene.add(shinyBall);
 
-"""      
+"""
 }]
 
 mickey_mouse = """
@@ -85,7 +79,6 @@ function animate() {
 animate();
 """
 
-
 ball = """
 // Create a pink ping ball
 var ballRadius = 1;
@@ -120,7 +113,6 @@ function animate() {
 // Call the animation function
 animate();
 """
-
 
 table = """
 // Create the table top
@@ -173,23 +165,8 @@ animate();
 """
 
 a_small_blue_ball = """
-// Create the blue ball geometry
-var geometry = new THREE.SphereGeometry(0.5, 32, 32);
-
-// Create the Phong material with blue color and shiny reflection
-var material = new THREE.MeshPhongMaterial({ color: 0x0000ff, shininess: 100 });
-
-// Create the blue ball mesh
-var ball = new THREE.Mesh(geometry, material);
-// Center the ball around the origin
-ball.position.set(0, 0, 0);
-
+geometry = new THREE.SphereGeometry(100, 32, 32);
+material = new THREE.MeshPhongMaterial({ color: 0x0000ff, shininess: 100 });
+ball = new THREE.Mesh(geometry, material);
 scene.add(ball);
-function animate() {
-  requestAnimationFrame(animate);
-  ball.rotation.y += 0.01;
-  renderer.render(scene, camera);
-}
-// Call the animation function
-animate();
 """
