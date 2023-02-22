@@ -33,3 +33,6 @@ interactive text to 3d rendering
 - should be able to modify the parameters of the objects and the scene (RL)
 - should start with 2d graphics like svg at first
 - can restrict to not too complex shapes like predicting the CSG tree. 
+
+## figma 
+- https://www.figma.com/file/maTJrUlXRWfFFuMJqNUywh/chat3d?t=9jl5sPso6Bs0jUjV-0
