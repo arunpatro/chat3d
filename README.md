@@ -1,11 +1,11 @@
 # chat3d
 interactive text to 3d rendering
 
-
 ## status
 - can generate single primitive shapes
 - can generate more than one
-- generates good objects, llm need to be aware of the camera and the approximate object size
+- generates good objects, llm knows approximate object size
+- output code is short because prompts are getting larger, which means we now need to train models, and reduce compute data
 
 ## features
 - want a cool minimal 3d editor that you can chat with. 
