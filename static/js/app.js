@@ -94,9 +94,9 @@ function init_4canvases() {
 
   // create a mesh for each canvas
   let meshes = [
-    new THREE.Mesh(new THREE.SphereGeometry(1.5, 32, 32), new THREE.MeshPhongMaterial({ color: getRandomColor() })),
-    new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 })),
-    new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.5, 16, 32), new THREE.MeshNormalMaterial({ color: 0xff00ff })),
+    new THREE.Mesh(new THREE.SphereGeometry(1.5, 32, 32), new THREE.MeshPhongMaterial({ color: getRandomColor() , shininess: 20 })),
+    new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshPhongMaterial({ color: getRandomColor(), shininess: 100 })),
+    new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.5, 16, 32), new THREE.MeshNormalMaterial()),
     new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 5, 32), new THREE.MeshNormalMaterial())
   ];
   meshes[3].rotation.z = Math.PI / 2;
@@ -104,8 +104,8 @@ function init_4canvases() {
   // create a renderer and camera for each canvas
   for (let i = 0; i < canvases.length; i++) {
     let canvas = canvases[i];
-    canvas.width = window.innerWidth * 0.15;
-    canvas.height = window.innerHeight * 0.15;
+    canvas.width = window.innerWidth * 0.12;
+    canvas.height = window.innerHeight * 0.25;
     // canvas.width = canvas.clientWidth;
     // canvas.height = canvas.clientHeight;
 

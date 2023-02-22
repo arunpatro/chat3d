@@ -4,7 +4,8 @@ interactive text to 3d rendering
 
 ## status
 - can generate single primitive shapes
-- sometimes generates small objects, llm need to be aware of the camera and the approximate object size
+- can generate more than one
+- generates good objects, llm need to be aware of the camera and the approximate object size
 
 ## features
 - want a cool minimal 3d editor that you can chat with. 
@@ -33,7 +34,13 @@ interactive text to 3d rendering
   - who owns whom? 
 - should be able to modify the parameters of the objects and the scene (RL)
 - should start with 2d graphics like svg at first
-- can restrict to not too complex shapes like predicting the CSG tree. 
+- can restrict to not too complex shapes like predicting the CSG tree.
+
+## llm core skills
+We will develop examples to help the llm learn each skill for scene understanding
+- notion of numbers [works n <= 3]
+- spatial relative position, prepositionally
+- needs to understand material properties
 
 ## relevant research
 1. Neural Shape Parsers for Constructive Solid Geometry

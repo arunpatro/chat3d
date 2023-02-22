@@ -1,7 +1,7 @@
 # todo tasks
 a list of tasks to do daily or weekly to enhance the project
 
-1. cache layer
+1. cache layer [partly-done] 
     - index and save all creations
     - display the best in quality for reference
     - helps collect data
