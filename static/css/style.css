@@ -85,7 +85,7 @@ h1 {
 
 .code-box {
   flex: 1;
-  max-width: 500px;
+  max-width: 30%;
 }
 
 pre {
@@ -101,12 +101,12 @@ pre {
 
 .canvas-box {
   flex: 1;
-  max-width: 500px;
+  max-width: 30%;
 }
 
 .examples-box {
   flex: 1;
-  max-width: 75%;
+  max-width: 60%;
 }
 
 h2 {
@@ -121,5 +121,5 @@ h2 {
   /* flex-direction: column; */
   align-items: center;
   /* width: 50%; */
-  height: 500px
+  /* height: 500px */
 }
