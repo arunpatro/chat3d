@@ -131,38 +131,6 @@ function init_4canvases() {
 }
 
 
-
-
-var codes = [
-  scene => {
-    let geometry = new THREE.BoxGeometry(2, 2, 2);
-    let material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 });
-    let mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-    return mesh;
-  },
-  scene => {
-    let geometry = new THREE.ConeGeometry(2, 4, 4);
-    let material = new THREE.MeshPhongMaterial({ color: 0xffa500, shininess: 100 });
-    let mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-  },
-  scene => {
-    let geometry = new THREE.TorusGeometry(2, 1, 16, 32);
-    let material = new THREE.MeshNormalMaterial({ color: 0xff00ff });
-    let mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh);
-  },
-  scene => {
-    let geometry = new THREE.CylinderGeometry(0.3, 0.3, 5, 32);
-    let material = new THREE.MeshNormalMaterial();
-    let mesh = new THREE.Mesh(geometry, material);
-    mesh.rotation.z = Math.PI / 2;
-    scene.add(mesh);
-  }
-];
-
-
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0');
 }
