@@ -1,13 +1,15 @@
 from flask import Flask, request, jsonify, render_template
 from langchain.llms import OpenAI
 from langchain import PromptTemplate, FewShotPromptTemplate
-from sample_objects import examples, mickey_mouse, a_small_blue_ball
+from sample_objects import examples
+from langchain.prompts.example_selector.ngram_overlap import NGramOverlapExampleSelector
+from langchain.prompts.example_selector import LengthBasedExampleSelector
 import pickle
 from datetime import datetime
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 model = OpenAI(
-  temperature=0.5,
+  temperature=0.4,
   openai_api_key="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",
 )
 
@@ -30,9 +32,47 @@ example_prompt = PromptTemplate(
   template=template,
 )
 
-# print(example_prompt.format(description="a asf b", code="se {x} asdf \n ome"))
+# prompt_builder = FewShotPromptTemplate(
+#   examples=examples,
+#   example_prompt=example_prompt,
+#   prefix=prefix,
+#   suffix="Description: {input}\nCode:",
+#   input_variables=["input"],
+#   example_separator="\n\n",
+# )
+
+example_selector = LengthBasedExampleSelector(
+    # These are the examples it has available to choose from.
+    examples=examples, 
+    # This is the PromptTemplate being used to format the examples.
+    example_prompt=example_prompt, 
+    # This is the maximum length that the formatted examples should be.
+    # Length is measured by the get_text_length function below.
+    max_length=25,
+    # This is the function used to get the length of a string, which is used
+    # to determine which examples to include. It is commented out because
+    # it is provided as a default value if none is specified.
+    # get_text_length: Callable[[str], int] = lambda x: len(re.split("\n| ", x))
+)
+
+# example_selector = NGramOverlapExampleSelector(
+#     examples=examples, 
+#     example_prompt=example_prompt, 
+#     # This is the threshold, at which selector stops.
+#     # It is set to -1.0 by default.
+#     threshold=-1.0,
+#     # For negative threshold:
+#     # Selector sorts examples by ngram overlap score, and excludes none.
+#     # For threshold greater than 1.0:
+#     # Selector excludes all examples, and returns an empty list.
+#     # For threshold equal to 0.0:
+#     # Selector sorts examples by ngram overlap score,
+#     # and excludes those with no ngram overlap with input.
+# )
+
 prompt_builder = FewShotPromptTemplate(
   examples=examples,
+  # example_selector=example_selector,
   example_prompt=example_prompt,
   prefix=prefix,
   suffix="Description: {input}\nCode:",

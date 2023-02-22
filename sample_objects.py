@@ -23,20 +23,40 @@ scene.add(ball);
   "two green balls side by side, one with matte finish and the other with phong reflection",
   "code":
   """
-var matteGeometry = new THREE.SphereGeometry(1, 32, 32);
-var matteMaterial = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
-var matteBall = new THREE.Mesh(matteGeometry, matteMaterial);
+matteGeometry = new THREE.SphereGeometry(1, 32, 32);
+matteMaterial = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
+matteBall = new THREE.Mesh(matteGeometry, matteMaterial);
 matteBall.position.x = -1.5;
 
-var shinyGeometry = new THREE.SphereGeometry(1, 32, 32);
-var shinyMaterial = new THREE.MeshPhongMaterial({{ color: 0x00ff00, shininess: 100 }});
-var shinyBall = new THREE.Mesh(shinyGeometry, shinyMaterial);
+shinyGeometry = new THREE.SphereGeometry(1, 32, 32);
+shinyMaterial = new THREE.MeshPhongMaterial({{ color: 0x00ff00, shininess: 100 }});
+shinyBall = new THREE.Mesh(shinyGeometry, shinyMaterial);
 shinyBall.position.x = 1.5;
 
 scene.add(matteBall);
 scene.add(shinyBall);
 """
+}, {
+  "description":
+  "two green balls cylinders",
+  "code":
+  """
+var cylinderGeometry1 = new THREE.CylinderGeometry(1, 1, 2, 32);
+var cylinderMaterial1 = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
+var cylinder1 = new THREE.Mesh(cylinderGeometry1, cylinderMaterial1);
+cylinder1.position.x = -1.5;
+
+var cylinderGeometry2 = new THREE.CylinderGeometry(1, 1, 2, 32);
+var cylinderMaterial2 = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
+var cylinder2 = new THREE.Mesh(cylinderGeometry2, cylinderMaterial2);
+cylinder2.position.x = 1.5;
+
+scene.add(cylinder1);
+scene.add(cylinder2);
+"""
 }]
+
+
 
 mickey_mouse = """
 // Create a Mickey Mouse head
@@ -78,40 +98,6 @@ function animate() {
 animate();
 """
 
-ball = """
-// Create a pink ping ball
-var ballRadius = 1;
-var ballGeometry = new THREE.SphereGeometry(ballRadius, 32, 32);
-var ballMaterial = new THREE.MeshBasicMaterial({ color: 0xff69b4 });
-var ball = new THREE.Mesh(ballGeometry, ballMaterial);
-
-// Center the ball around the origin
-ball.position.set(0, 0, 0);
-
-// Add the ping ball to the scene
-scene.add(ball);
-
-// Create a directional light
-var light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(0, 1, 1).normalize();
-scene.add(light);
-
-// Create axes helper
-var axesHelper = new THREE.AxesHelper(5);
-// axesHelper.material.setColors(THREE.Color(0xff0000), THREE.Color(0x00ff00), THREE.Color(0x0000ff));
-// Add axes helper to the scene
-scene.add(axesHelper);
-// Position the camera
-camera.position.z = 5;
-// Create an animation function
-function animate() {
-  requestAnimationFrame(animate);
-  ball.rotation.y += 0.01;
-  renderer.render(scene, camera);
-}
-// Call the animation function
-animate();
-"""
 
 table = """
 // Create the table top
