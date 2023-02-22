@@ -59,43 +59,46 @@ h1 {
 .content-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
   justify-content: center;
   margin-top: 20px;
 }
 
-#code {
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.code-box {
   flex: 1;
   max-width: 500px;
-  padding: 10px;
+}
+
+pre {
+  width: 100%;
   font-size: 1.2em;
   border-radius: 5px;
   border: none;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   overflow: scroll;
-  margin: 10px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
 }
 
-#canvas {
+.canvas-box {
   flex: 1;
   max-width: 500px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  margin: 10px;
 }
 
-@media screen and (max-width: 768px) {
-  .input-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #textbox {
-    margin-bottom: 10px;
-  }
-
-  #render-button {
-    margin-left: 0;
-    margin-top: 10px;
-  }
+h2 {
+  margin-top: 0;
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>My Three.js and LangChain Web App</title>
   <link rel="stylesheet" href="/static/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
-
 <body>
   <header>
     <h1>My Three.js and LangChain Web App</h1>
@@ -20,11 +18,16 @@
       <img src="/static/loading.gif" width="50px" alt="Loading...">
     </div>
     <div class="content-container">
-      <pre id="code"></pre>
-      <canvas id="canvas"></canvas>
+      <div class="box code-box">
+        <h2>Code</h2>
+        <pre id="code"></pre>
+      </div>
+      <div class="box canvas-box">
+        <h2>Canvas</h2>
+        <canvas id="canvas"></canvas>
+      </div>
     </div>
   </main>
   <script src="/static/js/app.js"></script>
 </body>
-
 </html>
