@@ -3,6 +3,7 @@ from langchain.llms import OpenAI
 from langchain import PromptTemplate, FewShotPromptTemplate
 from sample_objects import examples, mickey_mouse, a_small_blue_ball
 import pickle
+from datetime import datetime
 
 app = Flask(__name__, template_folder="templates", static_folder="static")
 model = OpenAI(
@@ -61,7 +62,9 @@ def generate():
   # code = test_code
   code = model(prompt_builder.format(input=prompt))
   print(code)
-  with open(f"prompts_cache/prompt_{prompt}.pickle", "wb") as f:
+  with open(
+      f"prompts_cache/prompt_{prompt}_{datetime.now().isoformat()}.pickle",
+      "wb") as f:
     pickle.dump([prompt, code], f)
 
   response = {"code": code}
