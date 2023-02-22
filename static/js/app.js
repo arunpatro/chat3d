@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function init_4canvases() {
   let canvases = document.querySelectorAll("#canvases canvas")
 
-  let animations = []
+  var animations = []
   for (var i = 0; i < canvases.length; i++) {
     let canvas = canvases[i];
     canvas.width = canvas.clientWidth;
@@ -108,35 +108,81 @@ function init_4canvases() {
     light.position.set(0, 1, 1).normalize();
     scene.add(light);
 
-    let geometry = new THREE.SphereGeometry(2, 32, 32);
-    let material = new THREE.MeshPhongMaterial({ color: getRandomColor() });
-    let mesh = new THREE.Mesh(geometry, material);
-    scene.add(mesh)
+    // let geometry = new THREE.SphereGeometry(2, 32, 32);
+    // let material = new THREE.MeshPhongMaterial({ color: getRandomColor() });
+    // let mesh = new THREE.Mesh(geometry, material);
+    // scene.add(mesh)
+
+    // let geometry = new THREE.BoxGeometry(2, 2, 2);
+    // let material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 });
+    // let mesh = new THREE.Mesh(geometry, material);
+    // scene.add(mesh);
+    codes[i](scene)
+
+    // eval(codes[i])
 
     let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
     let animate = function () {
+      // by default rotate all objects
       requestAnimationFrame(animate);
-      mesh.rotation.x += 0.01;
-      mesh.rotation.y += 0.02;
+      rotate_objs();
       renderer.render(scene, camera);
     }
 
-    animations.push(animate)
-  }
-  // renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-  // renderer.setSize(400, 400);
+    let rotate_objs = function () {
+      scene.traverse(function (object) {
+        if (object.type === 'Mesh') {
+          object.rotation.x += 0.01;
+          object.rotation.y += 0.02;
+        }
+      });
 
-  for (var i = 0; i < animations.length; i++) {
-    animations[i]()
-  }
+      animations.push(animate)
+    }
+    // renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+    // renderer.setSize(400, 400);
 
+    for (var i = 0; i < animations.length; i++) {
+      animations[i]()
+    }
+
+  }
 }
+
+const codes = [
+  scene => {
+    let geometry = new THREE.BoxGeometry(2, 2, 2);
+    let material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 });
+    let mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+  },
+  scene => {
+    let geometry = new THREE.ConeGeometry(2, 4, 4);
+    let material = new THREE.MeshPhongMaterial({ color: 0xffa500, shininess: 100 });
+    let mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+  },
+  scene => {
+    let geometry = new THREE.TorusGeometry(2, 1, 16, 32);
+    let material = new THREE.MeshNormalMaterial({ color: 0xff00ff });
+    let mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+  },
+  scene => {
+    let geometry = new THREE.CylinderGeometry(0.3, 0.3, 5, 32);
+    let material = new THREE.MeshNormalMaterial();
+    let mesh = new THREE.Mesh(geometry, material);
+    mesh.rotation.z = Math.PI / 2;
+    scene.add(mesh);
+  }
+];
+
 
 function getRandomColor() {
   return '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0');
 }
 
 
-init_4canvases()
+// init_4canvases()
