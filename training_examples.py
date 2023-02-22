@@ -1,4 +1,4 @@
-examples = [{
+EXAMPLES = [{
   "description":
   "a blue ball with phong reflection",
   "code":
@@ -53,6 +53,30 @@ cylinder2.position.x = 1.5;
 
 scene.add(cylinder1);
 scene.add(cylinder2);
+"""
+}, {
+  "description":
+    "three cubes",
+    "code":
+"""
+var cubeGeometry1 = new THREE.BoxGeometry(2, 2, 2);
+var cubeMaterial1 = new THREE.MeshLambertMaterial({{ color: 0xff0000 }});
+var cube1 = new THREE.Mesh(cubeGeometry1, cubeMaterial1);
+cube1.position.x = -2;
+
+var cubeGeometry2 = new THREE.BoxGeometry(2, 2, 2);
+var cubeMaterial2 = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
+var cube2 = new THREE.Mesh(cubeGeometry2, cubeMaterial2);
+cube2.position.x = 0;
+
+var cubeGeometry3 = new THREE.BoxGeometry(2, 2, 2);
+var cubeMaterial3 = new THREE.MeshLambertMaterial({{ color: 0x0000ff }});
+var cube3 = new THREE.Mesh(cubeGeometry3, cubeMaterial3);
+cube3.position.x = 2;
+
+scene.add(cube1);
+scene.add(cube2);
+scene.add(cube3);
 """
 }]
 

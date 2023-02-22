@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify, render_template
 from langchain.llms import OpenAI
 from langchain import PromptTemplate, FewShotPromptTemplate
-from sample_objects import examples
-from langchain.prompts.example_selector.ngram_overlap import NGramOverlapExampleSelector
+from training_examples import EXAMPLES
+# from langchain.prompts.example_selector.ngram_overlap import NGramOverlapExampleSelector
 from langchain.prompts.example_selector import LengthBasedExampleSelector
 import pickle
 from datetime import datetime
@@ -43,7 +43,7 @@ example_prompt = PromptTemplate(
 
 example_selector = LengthBasedExampleSelector(
     # These are the examples it has available to choose from.
-    examples=examples, 
+    examples=EXAMPLES, 
     # This is the PromptTemplate being used to format the examples.
     example_prompt=example_prompt, 
     # This is the maximum length that the formatted examples should be.
@@ -56,7 +56,7 @@ example_selector = LengthBasedExampleSelector(
 )
 
 # example_selector = NGramOverlapExampleSelector(
-#     examples=examples, 
+#     examples=EXAMPLES, 
 #     example_prompt=example_prompt, 
 #     # This is the threshold, at which selector stops.
 #     # It is set to -1.0 by default.
@@ -71,7 +71,7 @@ example_selector = LengthBasedExampleSelector(
 # )
 
 prompt_builder = FewShotPromptTemplate(
-  examples=examples,
+  examples=EXAMPLES,
   # example_selector=example_selector,
   example_prompt=example_prompt,
   prefix=prefix,
