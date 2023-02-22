@@ -3,8 +3,18 @@ examples = [{
   "a blue ball with phong reflection",
   "code":
   """
-geometry = new THREE.SphereGeometry(100, 32, 32);
+geometry = new THREE.SphereGeometry(2, 32, 32);
 material = new THREE.MeshPhongMaterial({{ color: 0x0000ff, shininess: 100 }});
+ball = new THREE.Mesh(geometry, material);
+scene.add(ball);
+"""
+}, {
+  "description":
+  "a green cube with phong reflection",
+  "code":
+  """
+geometry = new THREE.BoxGeometry(2, 2, 2);
+material = new THREE.MeshPhongMaterial({{ color: 0x00ff00, shininess: 100 }});
 ball = new THREE.Mesh(geometry, material);
 scene.add(ball);
 """
@@ -13,29 +23,18 @@ scene.add(ball);
   "two green balls side by side, one with matte finish and the other with phong reflection",
   "code":
   """
-// Create the green matte ball geometry
 var matteGeometry = new THREE.SphereGeometry(1, 32, 32);
-
-// Create the lambert material with green color and matte finish
 var matteMaterial = new THREE.MeshLambertMaterial({{ color: 0x00ff00 }});
-
-// Create the green matte ball mesh
 var matteBall = new THREE.Mesh(matteGeometry, matteMaterial);
 matteBall.position.x = -1.5;
 
-// Create the green shiny ball geometry
 var shinyGeometry = new THREE.SphereGeometry(1, 32, 32);
-
-// Create the Phong material with green color and shiny reflection
 var shinyMaterial = new THREE.MeshPhongMaterial({{ color: 0x00ff00, shininess: 100 }});
-
-// Create the green shiny ball mesh
 var shinyBall = new THREE.Mesh(shinyGeometry, shinyMaterial);
 shinyBall.position.x = 1.5;
 
 scene.add(matteBall);
 scene.add(shinyBall);
-
 """
 }]
 

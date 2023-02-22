@@ -20,7 +20,7 @@ prefix = """I want you to generate the code for three.js to generate one or more
 Given a description of the object, your task is to generate the code for the object and if neccessary group the objects to create a composite group object.
 Return the code as a string without any docstrings or english text, which will directly executed on the js console. Ensure that the objects are not too small or big and must be visible from a camera with parameters:
 camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 1, 10000);
-camera.position.z = 500;
+camera.position.z = 5;
 Here are a few examples of how to do this:"""
 
 suffix = "Description: {description}\nCode:"

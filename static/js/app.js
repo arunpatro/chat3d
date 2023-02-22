@@ -11,7 +11,7 @@ function init() {
   // set the scene and the camera
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 1, 10000);
-  camera.position.z = 500;
+  camera.position.z = 5;
   scene.add(camera);
 
   // set the lights
@@ -21,14 +21,15 @@ function init() {
 
 
   // optionally add any objects to be present inititally
-  // // geometry = new THREE.BoxGeometry(200, 200, 200);
-  // geometry = new THREE.SphereGeometry(150, 32, 32);
+  // geometry = new THREE.BoxGeometry(2, 2, 10);
+  // material = new THREE.MeshNormalMaterial();
+  // geometry = new THREE.SphereGeometry(2, 32, 32);
   // material = new THREE.MeshPhongMaterial();
-  // // material = new THREE.MeshNormalMaterial();
   // mesh = new THREE.Mesh(geometry, material);
   // scene.add(mesh)
-}
 
+
+}
 
 function animate() {
     // by default rotate all objects
