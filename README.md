@@ -1,4 +1,4 @@
-# neuralCanvas
+# chat3d
 interactive text to 3d rendering
 
 
