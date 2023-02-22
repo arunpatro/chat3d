@@ -85,7 +85,7 @@ pre {
   font-size: 1.2em;
   border-radius: 5px;
   border: none;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+/*   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); */
   overflow: scroll;
   word-wrap: break-word;
   white-space: pre-wrap;

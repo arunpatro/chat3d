@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>My Three.js and LangChain Web App</title>
   <link rel="stylesheet" href="/static/css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 </head>
+
 <body>
   <header>
     <h1>My Three.js and LangChain Web App</h1>
   </header>
   <main>
     <div class="input-container">
-      <input type="text" id="textbox" value="a blue ball with phong reflection" placeholder="a small blue ball">
+      <input type="text" id="textbox" value="a yellow cube with phong reflection" placeholder="a yellow cube with phong reflection">
       <button id="render-button">Render</button>
     </div>
     <div id="loading" class="loading-container" style="display: none;">
@@ -20,7 +24,7 @@
     <div class="content-container">
       <div class="box code-box">
         <h2>Code</h2>
-        <pre id="code"></pre>
+        <pre><code id="code" class="language-javascript"></code></pre>
       </div>
       <div class="box canvas-box">
         <h2>Canvas</h2>
@@ -30,4 +34,5 @@
   </main>
   <script src="/static/js/app.js"></script>
 </body>
+
 </html>

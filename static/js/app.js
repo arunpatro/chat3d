@@ -67,7 +67,9 @@ function generate(prompt) {
 
       // Create the Three.js objects from the generated code
       console.log(data.code)
-      document.getElementById("code").innerHTML = data.code;
+      var codebox = document.getElementById("code")
+      codebox.textContent = data.code;
+      Prism.highlightElement(codebox);
       init();
       eval(data.code);
       animate();
