@@ -1,6 +1,7 @@
 # chat3d
 interactive text to 3d rendering
 
+
 ## status
 - can generate single primitive shapes
 - sometimes generates small objects, llm need to be aware of the camera and the approximate object size
@@ -33,6 +34,15 @@ interactive text to 3d rendering
 - should be able to modify the parameters of the objects and the scene (RL)
 - should start with 2d graphics like svg at first
 - can restrict to not too complex shapes like predicting the CSG tree. 
+
+## relevant research
+1. Neural Shape Parsers for Constructive Solid Geometry
+  - https://arxiv.org/pdf/1912.11393.pdf
+  - https://github.com/Hippogriff/3DCSGNet
+  - CSG Parsers, can help in generating programs/trees to get the 3D object
+  - References are great, can implement some of these
+  
+2. 
 
 ## figma 
 - https://www.figma.com/file/maTJrUlXRWfFFuMJqNUywh/chat3d?t=9jl5sPso6Bs0jUjV-0
