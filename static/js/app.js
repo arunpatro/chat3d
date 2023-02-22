@@ -88,4 +88,55 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// init_scene();
+
+function init_4canvases() {
+  let canvases = document.querySelectorAll("#canvases canvas")
+
+  let animations = []
+  for (var i = 0; i < canvases.length; i++) {
+    let canvas = canvases[i];
+    canvas.width = canvas.clientWidth;
+    canvas.height = canvas.clientHeight;
+
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 1, 10000);
+    camera.position.z = 5;
+    scene.add(camera);
+
+    // set the lights
+    let light = new THREE.DirectionalLight(0xffffff, 1);
+    light.position.set(0, 1, 1).normalize();
+    scene.add(light);
+
+    let geometry = new THREE.SphereGeometry(2, 32, 32);
+    let material = new THREE.MeshPhongMaterial({ color: getRandomColor() });
+    let mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh)
+
+    let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+    renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+    let animate = function () {
+      requestAnimationFrame(animate);
+      mesh.rotation.x += 0.01;
+      mesh.rotation.y += 0.02;
+      renderer.render(scene, camera);
+    }
+
+    animations.push(animate)
+  }
+  // renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  // renderer.setSize(400, 400);
+
+  for (var i = 0; i < animations.length; i++) {
+    animations[i]()
+  }
+
+}
+
+function getRandomColor() {
+  return '#' + Math.floor(Math.random() * 0xffffff).toString(16).padEnd(6, '0');
+}
+
+
+init_4canvases()
