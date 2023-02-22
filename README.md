@@ -42,7 +42,9 @@ interactive text to 3d rendering
   - CSG Parsers, can help in generating programs/trees to get the 3D object
   - References are great, can implement some of these
   
-2. 
+2. Object Scene Representation Transformer
+  - https://arxiv.org/pdf/2206.06922.pdf
+  - related to neural scene representation 
 
 ## figma 
 - https://www.figma.com/file/maTJrUlXRWfFFuMJqNUywh/chat3d?t=9jl5sPso6Bs0jUjV-0
