@@ -90,73 +90,55 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function init_4canvases() {
-  let canvases = document.querySelectorAll("#canvases canvas")
+  let canvases = document.querySelectorAll("#canvases canvas");
 
-  var animations = []
-  for (var i = 0; i < canvases.length; i++) {
+  // create a scene, camera, and light for all canvases to share
+  let scene = new THREE.Scene();
+  let camera = new THREE.PerspectiveCamera(50, 1, 1, 10000);
+  camera.position.z = 5;
+  let light = new THREE.DirectionalLight(0xffffff, 1);
+  light.position.set(0, 1, 1).normalize();
+  scene.add(light);
+
+  // create four meshes and add them to the scene
+  let meshes = [];
+  let mesh1 = new THREE.Mesh(new THREE.SphereGeometry(2, 32, 32), new THREE.MeshPhongMaterial({ color: getRandomColor() }));
+  let mesh2 = new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 }));
+  let mesh3 = new THREE.Mesh(new THREE.TorusGeometry(2, 1, 16, 32), new THREE.MeshNormalMaterial({ color: 0xff00ff }));
+  let mesh4 = new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 5, 32), new THREE.MeshNormalMaterial());
+  mesh4.rotation.z = Math.PI / 2;
+  meshes.push(mesh1, mesh2, mesh3, mesh4);
+  meshes.forEach(mesh => scene.add(mesh));
+
+  // assign one mesh to each canvas and create a renderer for each canvas
+  for (let i = 0; i < canvases.length; i++) {
     let canvas = canvases[i];
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
 
-    let scene = new THREE.Scene();
-    let camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 1, 10000);
-    camera.position.z = 5;
-    scene.add(camera);
-
-    // set the lights
-    let light = new THREE.DirectionalLight(0xffffff, 1);
-    light.position.set(0, 1, 1).normalize();
-    scene.add(light);
-
-    // let geometry = new THREE.SphereGeometry(2, 32, 32);
-    // let material = new THREE.MeshPhongMaterial({ color: getRandomColor() });
-    // let mesh = new THREE.Mesh(geometry, material);
-    // scene.add(mesh)
-
-    // let geometry = new THREE.BoxGeometry(2, 2, 2);
-    // let material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 });
-    // let mesh = new THREE.Mesh(geometry, material);
-    // scene.add(mesh);
-    codes[i](scene)
-
-    // eval(codes[i])
-
     let renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
     renderer.setSize(canvas.clientWidth, canvas.clientHeight);
 
+    let mesh = meshes[i];
     let animate = function () {
-      // by default rotate all objects
       requestAnimationFrame(animate);
-      rotate_objs();
+      mesh.rotation.x += 0.01;
+      mesh.rotation.y += 0.02;
       renderer.render(scene, camera);
     }
-
-    let rotate_objs = function () {
-      scene.traverse(function (object) {
-        if (object.type === 'Mesh') {
-          object.rotation.x += 0.01;
-          object.rotation.y += 0.02;
-        }
-      });
-
-      animations.push(animate)
-    }
-    // renderer.setSize(canvas.clientWidth, canvas.clientHeight);
-    // renderer.setSize(400, 400);
-
-    for (var i = 0; i < animations.length; i++) {
-      animations[i]()
-    }
-
+    animate();
   }
 }
 
-const codes = [
+
+
+var codes = [
   scene => {
     let geometry = new THREE.BoxGeometry(2, 2, 2);
     let material = new THREE.MeshPhongMaterial({ color: 0xffff00, shininess: 100 });
     let mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
+    return mesh;
   },
   scene => {
     let geometry = new THREE.ConeGeometry(2, 4, 4);
@@ -185,4 +167,4 @@ function getRandomColor() {
 }
 
 
-// init_4canvases()
+init_4canvases()
