@@ -7,6 +7,7 @@ interactive text to 3d rendering
 - generates good objects, llm knows approximate object size
 - output code is short because prompts are getting larger, which means we now need to train models, and reduce compute data
 - we face competition from https://csm.ai/introducing-coder-text-to-code-for-3d-world-generation-gaming-and-programming/
+- https://www.youtube.com/watch?v=zUNS0Ct25RM&t=434s
 
 ## features
 - want a cool minimal 3d editor that you can chat with. 
