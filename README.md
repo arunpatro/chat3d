@@ -6,6 +6,7 @@ interactive text to 3d rendering
 - can generate more than one
 - generates good objects, llm knows approximate object size
 - output code is short because prompts are getting larger, which means we now need to train models, and reduce compute data
+- we face competition from https://csm.ai/introducing-coder-text-to-code-for-3d-world-generation-gaming-and-programming/
 
 ## features
 - want a cool minimal 3d editor that you can chat with. 
@@ -33,6 +34,8 @@ interactive text to 3d rendering
   - relative to camera? 
   - who owns whom? 
 - should be able to modify the parameters of the objects and the scene (RL)
+
+
 - should start with 2d graphics like svg at first
 - can restrict to not too complex shapes like predicting the CSG tree.
 
