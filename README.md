@@ -1,6 +1,23 @@
 # chat3d
 interactive text to 3d rendering
 
+This is primary a study of llms for scene understanding, and object interaction. This could be classified more into nlp/llms than graphics perse. 
+
+NLP/LLMs:
+- The aim is to generate a scene graph and edit it using natural language and llms. 
+- It is to be tested that llms can
+  - understand numbers
+  - do math
+  - understand relative spatial position of objects (and via prepositions)
+  - understand adjectives as materials
+- Upon understanding these objects in the scene, it must be able to reason and answer queries about the scene
+- Conversing with the agent must modify parameters of the scene graph such that we achieve desireable results
+
+Graphics:
+- needs to baseline represent vector graphics using object heirarchies and implicit models
+- looks like a lot of it is going to be NeRFs because of latest neural hype
+- there are some open research problems in implicit modelling research and people are moving towards that
+
 ## status
 - can generate single primitive shapes
 - can generate more than one
