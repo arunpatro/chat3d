@@ -10,7 +10,7 @@ from datetime import datetime
 app = Flask(__name__, template_folder="templates", static_folder="static")
 model = OpenAI(
   temperature=0.4,
-  openai_api_key="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",
+  openai_api_key="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",
 )
 
 template = """
