@@ -31,6 +31,8 @@ function init() {
 
 }
 
+
+
 function animate() {
   // by default rotate all objects
   requestAnimationFrame(animate);
@@ -45,8 +47,8 @@ function rotate_objs() {
       object.rotation.y += 0.02;
     }
   });
-  // camera.rotation.z += 0.01
 }
+
 
 function generate(prompt) {
   // Show the loading gif
@@ -94,7 +96,7 @@ function init_4canvases() {
 
   // create a mesh for each canvas
   let meshes = [
-    new THREE.Mesh(new THREE.SphereGeometry(1.5, 32, 32), new THREE.MeshPhongMaterial({ color: getRandomColor() , shininess: 20 })),
+    new THREE.Mesh(new THREE.SphereGeometry(1.5, 32, 32), new THREE.MeshPhongMaterial({ color: getRandomColor(), shininess: 20 })),
     new THREE.Mesh(new THREE.BoxGeometry(2, 2, 2), new THREE.MeshPhongMaterial({ color: getRandomColor(), shininess: 100 })),
     new THREE.Mesh(new THREE.TorusGeometry(1.5, 0.5, 16, 32), new THREE.MeshNormalMaterial()),
     new THREE.Mesh(new THREE.CylinderGeometry(0.3, 0.3, 5, 32), new THREE.MeshNormalMaterial())
